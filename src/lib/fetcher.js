@@ -10,7 +10,7 @@ export function checkFetchResponse (response) {
 
 export default function Fetcher ({ baseUrl }) {
   function fetcher (url, opts) {
-    if (baseUrl) url = (baseUrl+url).replace(/([^:]\/)\/+/g, "$1")
+    if (baseUrl) url = (baseUrl + url).replace(/([^:]\/)\/+/g, '$1')
     return fetch(url, opts).then(checkFetchResponse)
   }
 
