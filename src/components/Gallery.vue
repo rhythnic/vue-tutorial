@@ -6,8 +6,6 @@
       class="image"
       :src="image.previewURL"
       :alt="image.tags"
-      :likes="image.likes"
-      :mostLikes="mostLikes"
     />
   </div>
 </template>
@@ -26,16 +24,6 @@ export default {
   data () {
     return {
       images: []
-    }
-  },
-
-  computed: {
-    imagesSortedByLikes () {
-      return this.images.slice(0).sort((a, b) => b.likes < a.likes)
-    },
-    mostLikes () {
-      if (!this.images.length) return 0
-      return this.imagesSortedByLikes[this.images.length - 1].likes
     }
   },
 
