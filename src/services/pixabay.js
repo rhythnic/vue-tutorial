@@ -5,12 +5,12 @@ import Fetcher from '../lib/fetcher'
 
 class PixabayApi {
   constructor ({ apiKey }) {
-    this.fetch = Fetcher({ baseUrl: 'https://pixabay.com/api' })
+    this.fetch = Fetcher({ baseUrl: 'https://pixabay.com/api/' })
     this.apiKey = apiKey
   }
-  getImages (page=1, per_page=20) {
-    const url = `?key=${this.apiKey}&safesearch=true&page=${page}&per_page=${per_page}`
-    return this.fetch.json(url)
+  getImages (page = 1, perPage = 20) {
+    const url = `?key=${this.apiKey}&safesearch=true&page=${page}&per_page=${perPage}`
+    return this.fetch(url).then(x => x.json())
   }
 }
 
