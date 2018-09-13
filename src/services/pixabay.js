@@ -10,7 +10,7 @@ class PixabayApi {
   }
   getImages (page = 1, perPage = 20) {
     const url = `?key=${this.apiKey}&safesearch=true&page=${page}&per_page=${perPage}`
-    return this.fetch(url, { method: 'get' }).then(x => x.json())
+    return this.fetch(url).then(x => x.json())
   }
 }
 
