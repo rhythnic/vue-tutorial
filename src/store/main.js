@@ -1,9 +1,21 @@
 // Core Vuex store state/getters/mutations/actions, not namespaced
 
 export const initialState = {
-  toast: null,
-  error: null,
-  showError: false
+  toast: {
+    correlationId: null,
+    text: '',
+    secondaryText: '',
+    isError: false,
+    actionText: '',
+    open: false,
+    timerId: null,
+    timeout: 4000,
+    result: null
+  },
+  error: {
+    message: '',
+    show: false
+  }
 }
 
 export const getters = {
@@ -14,41 +26,42 @@ export const mutations = {
     Object.assign(state, initialState)
   },
   setToast (state, data) {
-    state.toast = data
+    state.toast = { ...initialState, ...data, open: true }
   },
-  setError (state, msg) {
-    state.error = msg
+  setError (state, message) {
+    state.error = { message, show: false }
   },
   setShowError (state, show) {
-    state.showError = show
+    state.error.show = show
   },
   resetError (state) {
-    state.error = null
-    state.showError = false
+    state.error = initialState.error
+  },
+  setToastTimerId (state, timerId) {
+    state.toast.timerId = timerId
+  },
+  resolveToast (state, result) {
+    window.clearTimeout(state.toast.timerId)
+    state.toast.result = result
+    state.toast.open = false
   }
 }
 
 export const actions = {
-  setToast ({ commit }, data) {
-    return new Promise(resolve => {
-      const toast = {
-        ...data,
-        onTimeout: () => resolve({ timeout: true })
-      }
-      if (data.actionText) {
-        toast.onAction = () => resolve({ action: true })
-      }
-      commit('setToast', toast)
-    })
+  setToast ({ commit, state }, data) {
+    commit('setToast', data)
+    commit('setToastTimerId', setTimeout(() => {
+      commit('resolveToast', 'timeout')
+    }, state.toast.timeout))
   },
   handleError ({ commit }, { text = 'Error occurred.', error }) {
     console.error(error)
     commit('setError', error.message)
     return commit('setToast', {
+      correlationId: 'error',
       text,
-      error: true,
-      actionText: 'Show',
-      onAction: () => commit('setShowError', true)
+      isError: true,
+      actionText: 'Show'
     })
   }
 }

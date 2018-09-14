@@ -1,58 +1,43 @@
 <template>
   <div
     class="toast"
-    :class="{ open: toastOpen, error: toast && toast.error }"
+    :class="{ open: toast.open, error: toast.isError }"
   >
-    <p v-if="toast" :class="{ error: toast.error }">
+    <p v-if="toast.open">
       {{toast.text}}<br/>
       <small>{{toast.secondaryText}}</small>
     </p>
-    <button v-if="toast && toast.onAction" @click.stop="callAction">
+    <button v-if="toast.open && toast.actionText" @click.stop="resolveToast('action')">
       {{toast.actionText}}
     </button>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'feedback',
 
-  data () {
-    return {
-      toastOpen: false,
-      actionCalled: false,
-      openTimerId: null
-    }
-  },
-
   computed: {
-    ...mapState(['toast', 'error', 'showError'])
+    ...mapState(['toast', 'error'])
   },
 
   methods: {
-    callAction () {
-      this.actionCalled = true
-      this.toastOpen = false
-    }
+    ...mapMutations(['resolveToast', 'setShowError'])
   },
 
   watch: {
-    toast (data) {
-      if (!data) return
-      this.toastOpen = true
-      this.actionCalled = false
-      window.clearTimeout(this.openTimerId)
-      this.openTimerId = setTimeout(() => { this.toastOpen = false }, data.timeout || 4000)
+    toast: {
+      handler (toast) {
+        if (toast.result === 'action' && toast.correlationId === 'error') {
+          this.setShowError(true)
+        }
+      },
+      deep: true
     },
-    toastOpen (open) {
-      if (open || !this.toast) return
-      if (this.actionCalled && this.toast.onAction) this.toast.onAction()
-      if (!this.actionCalled && this.toast.onTimeout) this.toast.onTimeout()
-    },
-    showError (show) {
-      if (show) alert(this.error)
+    'error.show' (show) {
+      if (show) alert(this.error.message)
     }
   }
 }
