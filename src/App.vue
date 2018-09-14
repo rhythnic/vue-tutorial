@@ -1,11 +1,15 @@
 <template>
   <div id="app">
     <router-view/>
+    <Feedback />
   </div>
 </template>
 
 <script>
+import Feedback from './components/Feedback'
+
 export default {
+  components: { Feedback },
   name: 'App'
 }
 </script>

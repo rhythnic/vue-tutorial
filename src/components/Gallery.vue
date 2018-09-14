@@ -15,6 +15,7 @@
 <script>
 import pixabayApi from '../services/pixabay'
 import GalleryImage from './GalleryImage'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
@@ -40,6 +41,7 @@ export default {
   },
 
   methods: {
+    ...mapActions(['handleError']),
     fetchImages () {
       pixabayApi.getImages()
         .then(x => { this.images = x.hits })
@@ -49,6 +51,10 @@ export default {
 
   created () {
     this.fetchImages()
+    setTimeout(
+      () => this.handleError({ error: new Error('Testing 1, 2, 3') }),
+      500
+    )
   }
 }
 </script>

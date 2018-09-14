@@ -2,8 +2,8 @@
 
 export const initialState = {
   toast: null,
-  errors: [],
-  showErrors: false
+  error: null,
+  showError: false
 }
 
 export const getters = {
@@ -16,15 +16,15 @@ export const mutations = {
   setToast (state, data) {
     state.toast = data
   },
-  pushError (state, error) {
-    state.errors.push(error)
+  setError (state, msg) {
+    state.error = msg
   },
-  setShowErrors (state, show) {
-    state.showErrors = show
+  setShowError (state, show) {
+    state.showError = show
   },
-  resetErrors (state) {
-    state.errors = []
-    state.showErrors = false
+  resetError (state) {
+    state.error = null
+    state.showError = false
   }
 }
 
@@ -43,12 +43,12 @@ export const actions = {
   },
   handleError ({ commit }, { text = 'Error occurred.', error }) {
     console.error(error)
-    commit('pushError', error)
+    commit('setError', error.message)
     return commit('setToast', {
       text,
       error: true,
       actionText: 'Show',
-      onAction: () => commit('setShowErrors', true)
+      onAction: () => commit('setShowError', true)
     })
   }
 }
