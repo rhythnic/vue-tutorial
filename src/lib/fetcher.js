@@ -17,18 +17,18 @@ export default function _fetch (url, opts) {
 
 export function fetchJsonFullResponse (url, opts) {
   opts = Object.assign({}, opts)
-    opts.headers = Object.assign({
-      'content-type': 'application/json',
-      'accept': 'application/json'
-    }, opts.headers)
-    if (opts.body && typeof opts.body !== 'string') {
-      try {
-        opts.body = JSON.stringify(opts.body)
-      } catch (e) {
-        return Promise.reject(e)
-      }
+  opts.headers = Object.assign({
+    'content-type': 'application/json',
+    'accept': 'application/json'
+  }, opts.headers)
+  if (opts.body && typeof opts.body !== 'string') {
+    try {
+      opts.body = JSON.stringify(opts.body)
+    } catch (e) {
+      return Promise.reject(e)
     }
-    return _fetch(url, opts)
+  }
+  return _fetch(url, opts)
 }
 
 export function fetchJson (url, opts) {
@@ -36,7 +36,7 @@ export function fetchJson (url, opts) {
 }
 
 export const extendUrl = (baseUrl, fn) => (url, opts) => {
-  if (baseUrl) url = (baseUrl+url).replace(/([^:]\/)\/+/g, "$1")
+  if (baseUrl) url = (baseUrl + url).replace(/([^:]\/)\/+/g, '$1')
   return fn(url, opts)
 }
 

@@ -13,9 +13,8 @@
 </template>
 
 <script>
-import pixabayApi from '../services/pixabay'
 import GalleryImage from './GalleryImage'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -24,13 +23,11 @@ export default {
 
   name: 'gallery',
 
-  data () {
-    return {
-      images: []
-    }
-  },
-
   computed: {
+    ...mapState('image', ['page']),
+    images () {
+      return this.$store.getters['image/pageImages'](this.page.items)
+    },
     imagesSortedByLikes () {
       return this.images.slice(0).sort((a, b) => b.likes - a.likes)
     },
@@ -42,19 +39,11 @@ export default {
 
   methods: {
     ...mapActions(['handleError']),
-    fetchImages () {
-      pixabayApi.getImages()
-        .then(x => { this.images = x.hits })
-        .catch(console.error)
-    }
+    ...mapActions('image', ['fetchImages'])
   },
 
   created () {
     this.fetchImages()
-    setTimeout(
-      () => this.handleError({ error: new Error('Testing 1, 2, 3') }),
-      500
-    )
   }
 }
 </script>
