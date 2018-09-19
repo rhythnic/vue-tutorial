@@ -43,7 +43,7 @@ export default {
   },
 
   created () {
-    this.fetchImages().catch(error => this.$store.dispatch('handleError', { error }))
+    this.fetchImages().catch(this.$catch('Error occurred while loading image data.'))
   }
 }
 </script>
