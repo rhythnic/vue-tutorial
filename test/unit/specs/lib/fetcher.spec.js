@@ -1,4 +1,4 @@
-import Fetcher from '@/lib/fetcher'
+import { Fetcher } from '@/lib/fetcher'
 
 function mockFetch(data, status = 200) {
   return jest.fn().mockImplementation(() =>

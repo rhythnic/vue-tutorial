@@ -1,4 +1,4 @@
-import Fetcher from '../lib/fetcher'
+import { Fetcher } from '../lib/fetcher'
 
 // Pixabay API docs
 // https://pixabay.com/api/docs/
