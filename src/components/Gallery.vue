@@ -43,7 +43,7 @@ export default {
   },
 
   created () {
-    this.fetchImages()
+    this.fetchImages().catch(error => this.$store.dispatch('handleError', { error }))
   }
 }
 </script>
