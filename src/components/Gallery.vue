@@ -17,8 +17,7 @@ export default {
   methods: {
     fetchImages () {
       pixabayApi.getImages()
-        .then(x => x.hits)
-        .then(x => { this.images = x })
+        .then(x => { this.images = x.hits })
         .catch(console.error)
     }
   },
