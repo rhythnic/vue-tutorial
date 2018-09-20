@@ -1,8 +1,22 @@
-# picsum-vue-tutorial
+# Step-By-Step Vue Tutorial
 
-> A Vue.js Tutorial
+## Step 1
 
-## Build Setup
+Step 1 has the initial file structure from scaffolding the app with
+the [vue-cli](https://cli.vuejs.org/) using the
+[webpack template](https://github.com/vuejs-templates/webpack).
+
+### File structure
+- **build** - Build script and webpack configurations.
+- **config** - Configure environment variables and development/build settings.
+- **dist** - Built files.
+- **src** - Src
+- **src/asstes** - Images, etc. that are imported into code.
+- **static** - Static files that are copied into dist at build time.
+- **test** - Jest unit tests and Nightwatch e2e tests.
+
+
+### Commands
 
 ``` bash
 # install dependencies
