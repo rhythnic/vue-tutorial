@@ -1,8 +1,13 @@
-# Step - 3
+# Step - 4
 
-In step 2 we add a service for the [Pixabay](https://pixabay.com/en/) API.
+Remove the HelloWorld component and add a Gallery component.
 
 ## Changes
 
-- Add file `/src/services/pixabay.js`
-- Add PIXABAY_API_KEY in `/config/prod.env.js`
+- Remove file `/src/components/HelloWorld.vue`
+- Add file `/src/components/Gallery.vue`
+
+## Notes
+
+- No UI yet.  Just fetching data.
+- "watch" doesn't serve a purpose here.  It's just for demonstration.
