@@ -1,12 +1,14 @@
-# Step - 5
+# Step - 6
 
 ## Changes
 
-- Add file `/src/components/GalleryImage.vue`
-- Use GalleryImage in Gallery component
+- Use a computed property to sort images in descending order by number of likes.
+- Use computed property to computed the most likes.
+- Pass the mostLikes and image.likes to the GalleryImage component
+- In GalleryImage, use a computed property to compute the image style tag.
+- Use CSS filter blur to blur images that are less popular.
 
 ## Notes
 
-- In Vue, you have to import the component AND add it to the components object.
-- The "v-for" attribute will create one component for every item in the array.
-- The colon before the attribute name is short for "v-bind".  It's how you pass dynamic values.
+- Array.prototype.sort mutates the array. A computed property should not mutate the
+data, so we're using Array.prototype.slice to make a copy of the array.
