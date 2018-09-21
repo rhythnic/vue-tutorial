@@ -1,30 +1,13 @@
-# picsum-vue-tutorial
+# Step - 4
 
-> A Vue.js Tutorial
+Remove the HelloWorld component and add a Gallery component.
 
-## Build Setup
+## Changes
 
-``` bash
-# install dependencies
-npm install
+- Remove file `/src/components/HelloWorld.vue`
+- Add file `/src/components/Gallery.vue`
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Notes
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- No UI yet.  Just fetching data.
+- "watch" doesn't serve a purpose here.  It's just for demonstration.
