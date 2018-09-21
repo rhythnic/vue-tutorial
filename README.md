@@ -1,30 +1,14 @@
-# picsum-vue-tutorial
+# Step - 6
 
-> A Vue.js Tutorial
+## Changes
 
-## Build Setup
+- Use a computed property to sort images in descending order by number of likes.
+- Use computed property to computed the most likes.
+- Pass the mostLikes and image.likes to the GalleryImage component
+- In GalleryImage, use a computed property to compute the image style tag.
+- Use CSS filter blur to blur images that are less popular.
 
-``` bash
-# install dependencies
-npm install
+## Notes
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- Array.prototype.sort mutates the array. A computed property should not mutate the
+data, so we're using Array.prototype.slice to make a copy of the array.
