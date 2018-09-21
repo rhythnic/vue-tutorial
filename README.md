@@ -1,30 +1,21 @@
-# picsum-vue-tutorial
+# Step - 2
 
-> A Vue.js Tutorial
+In step 2 we add a small library of helpers for window.fetch to make it easier to use.
 
-## Build Setup
+## New Files
 
-``` bash
-# install dependencies
-npm install
+- `/src/lib/fetcher.js`
+- `/test/unit/specs/lib/fetcher.spec.js`
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Fetch Gotchas
 
-# build for production with minification
-npm run build
+1.  If the HTTP contains an error code, fetch will not reject the promise.  Fetch only
+rejects a promise due to a network failure.  As a user of fetch, we generally want the
+request to fail if the HTTP response doesn't have a success status (200 - 299 is success).
+To accomodate for this, each fetch request is passed to `checkFetchResponse`, which constructs
+and throws an error if the reponse is not ok.
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+2.  If you add a "content-type" header to a fetch request, the request is preceeded by an
+method=OPTIONS request to see if the server supports that content-type on your intended HTTP
+method. Usually this is fine, but some APIs will return an error for the OPTIONS request,
+even though they allow the content-type on the GET/POST/PUT/DELETE that you intend to do.
