@@ -1,12 +1,10 @@
-# Step-By-Step Vue Tutorial
-
-## Step 1
+# Step 1
 
 Step 1 has the initial file structure from scaffolding the app with
 the [vue-cli](https://cli.vuejs.org/) using the
 [webpack template](https://github.com/vuejs-templates/webpack).
 
-### File structure
+## File structure
 - **build** - Build script and webpack configurations.
 - **config** - Configure environment variables and development/build settings.
 - **dist** - Built files.
@@ -16,7 +14,7 @@ the [vue-cli](https://cli.vuejs.org/) using the
 - **test** - Jest unit tests and Nightwatch e2e tests.
 
 
-### Commands
+## Commands
 
 ``` bash
 # install dependencies
