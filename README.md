@@ -1,30 +1,21 @@
-# picsum-vue-tutorial
+# Step - 9
 
-> A Vue.js Tutorial
+## Changes
 
-## Build Setup
+- Add `/src/lib/vuex-helpers.js`
+- Add image module to store `/src/store/image.js`
+- Add module to store configuration in `/src/store/index.js`
+- Replace image state/methods in Components with calls to Vuex store.
 
-``` bash
-# install dependencies
-npm install
+## Vuex Helpers
 
-# serve with hot reload at localhost:8080
-npm run dev
+The Vuex helpers are used to make the Vuex code shorter by offering
+common patterns for accessing or mutating the store.  You can read
+more about it [on my blog post](https://itnext.io/reusable-vuex-mutation-functions-9b4920aa737b).
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+## Vuex Getters
 
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Getters can return a function as their value.  You can then use the getters dynamically,
+by passing IDs and filters to get data from state.
+[Method-style access](https://vuex.vuejs.org/guide/getters.html#method-style-access)
