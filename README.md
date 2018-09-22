@@ -1,30 +1,29 @@
-# picsum-vue-tutorial
+# Step - 7
 
-> A Vue.js Tutorial
+## Changes
 
-## Build Setup
+- Use [Vuex](https://vuex.vuejs.org/)
+- Create, configure, and export store in `/src/store/index.js`
+- Add main store module at `/src/store/main.js`
+- Add store to app in `/src/main.js`
 
-``` bash
-# install dependencies
-npm install
+## About Vuex
 
-# serve with hot reload at localhost:8080
-npm run dev
+Vuex is the package for central state management in Vue.
+Vuex is to Vue what Redux is to React, except Vuex is very different.
+It's similar to Mobx.  It shares a lot with the Vue component model.
 
-# build for production with minification
-npm run build
+| Component     | Vuex          |
+| ------------- |:-------------:|
+| data          | state         |
+| computed      | getters       |
+| methods       | actions       |
+| assignment    | mutations     |
 
-# build for production and view the bundle analyzer report
-npm run build --report
+There are no watchers in Vuex, but you can subscribe to the store.
+You can listen to mutations and actions.  You can also watch the
+store's state or getters in components.
 
-# run unit tests
-npm run unit
+## The Main Store Module
 
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+The main store module contains things that are common to all apps.
