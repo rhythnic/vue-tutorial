@@ -1,6 +1,6 @@
 # Step-By-Step Vue Tutorial
 
-A Vue.js Tutorial layed out in git branches, step-1 - step-10.
+A Vue.js tutorial layed out in git branches, step-1 through step-10.
 Each step's README.md file describes the changes or additions for that step.
 
 ## Running the app
