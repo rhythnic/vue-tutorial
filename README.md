@@ -1,30 +1,8 @@
-# picsum-vue-tutorial
+# Step - 7
 
-> A Vue.js Tutorial
+## Changes
 
-## Build Setup
+- Add Feedback component (Toast and Error Reporting) `/src/components/Feedback.vue`
+- Use Feedback compoent in `/src/App.vue`
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+The Feedback component is connected to the Vuex store.
