@@ -2,10 +2,10 @@
 
 In step 2 we add a small library of helpers for window.fetch to make it easier to use.
 
-## New Files
+## Changes
 
-- `/src/lib/fetcher.js`
-- `/test/unit/specs/lib/fetcher.spec.js`
+- Added fetch wrapper at `/src/lib/fetcher.js`
+- Added unit test for fetch wrapper at `/test/unit/specs/lib/fetcher.spec.js`
 
 ## Fetch Gotchas
 
