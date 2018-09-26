@@ -1,12 +1,15 @@
 <template>
-  <img :src="src" :alt="alt" :style="style" />
+  <figure>
+    <img :src="src" :alt="alt" :style="style" :title="alt" />
+    <figcaption>{{ createdAt | toLocaleDateString }}</figcaption>
+  </figure>
 </template>
 
 <script>
 export default {
   name: 'gallery-image',
 
-  props: ['src', 'alt', 'likes', 'mostLikes'],
+  props: ['src', 'alt', 'likes', 'mostLikes', 'createdAt'],
 
   computed: {
     style () {

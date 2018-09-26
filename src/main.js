@@ -3,6 +3,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import handleError from './lib/handle-error-plugin'
+import './lib/filters'
 
 Vue.config.productionTip = false
 Vue.use(handleError, { store })
