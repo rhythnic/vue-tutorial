@@ -9,7 +9,7 @@ the [vue-cli](https://cli.vuejs.org/) using the
 - **config** - Configure environment variables and development/build settings.
 - **dist** - Built files.
 - **src** - Src
-- **src/asstes** - Images, etc. that are imported into code.
+- **src/assets** - Images, etc. that are imported into code.
 - **static** - Static files that are copied into dist at build time.
 - **test** - Jest unit tests and Nightwatch e2e tests.
 
@@ -39,4 +39,5 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For a detailed explanation on how things work for apps created with the webpack template for vue-cli,
+check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
