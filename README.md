@@ -1,7 +1,16 @@
 # Step-By-Step Vue Tutorial
 
-A Vue.js tutorial layed out in git branches, step-1 through step-10.
+A Vue.js tutorial layed out in git branches, beginning with step-1.
 Each step's README.md file describes the changes or additions for that step.
+
+## Walking through the tutorial
+
+- Clone this repo: `git clone git@github.com:rhythnic/vue-tutorial.git`
+- Npm install `npm install`
+- Checkout a branch, e.g. `git checkout step-1`
+- README.md will describe the changes made in that step of the tutorial.
+- Look at the new code.
+- Run the app at that step, `npm run dev`
 
 ## Running the app
 
