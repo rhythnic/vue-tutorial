@@ -1,7 +1,8 @@
-# Step - 10
+# Step - 11
 
 ## Changes
 
-- Add a plugin for error handling `/src/lib/handle-error-plugin.js`
-- Use the plugin in `/src/main.js`
-- Invoke a plugin method in `/src/components/Gallery.vue`
+- Add a file for filters at `/src/lib/filters.js`
+- Import filters file into `/src/main.js`
+- Pass image.createdAt prop to GalleryImage component.
+- Render createdAt time in GalleryImage using the toLocaleDateString filter.
