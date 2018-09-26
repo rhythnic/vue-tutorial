@@ -17,32 +17,26 @@ export default function _fetch (url, opts) {
 
 export function fetchJsonFullResponse (url, opts) {
   opts = Object.assign({}, opts)
-    opts.headers = Object.assign({
-      'content-type': 'application/json',
-      'accept': 'application/json'
-    }, opts.headers)
-    if (opts.body && typeof opts.body !== 'string') {
-      try {
-        opts.body = JSON.stringify(opts.body)
-      } catch (e) {
-        return Promise.reject(e)
-      }
+  opts.headers = Object.assign({
+    'content-type': 'application/json',
+    'accept': 'application/json'
+  }, opts.headers)
+  if (opts.body && typeof opts.body !== 'string') {
+    try {
+      opts.body = JSON.stringify(opts.body)
+    } catch (e) {
+      return Promise.reject(e)
     }
-    return _fetch(url, opts)
+  }
+  return _fetch(url, opts)
 }
 
 export function fetchJson (url, opts) {
-  return fetchJsonFullResponse(url, opts).then(function (x) { return x.json() })
+  return fetchJsonFullResponse(url, opts).then(function (x) {
+    return x.status === 204 ? x : x.json()
+  })
 }
 
-export const extendUrl = (baseUrl, fn) => (url, opts) => {
-  if (baseUrl) url = (baseUrl+url).replace(/([^:]\/)\/+/g, "$1")
-  return fn(url, opts)
-}
-
-export function Fetcher ({ baseUrl }) {
-  const fetcher = extendUrl(baseUrl, _fetch)
-  fetcher.jsonFullResponse = extendUrl(baseUrl, fetchJsonFullResponse)
-  fetcher.json = extendUrl(baseUrl, fetchJson)
-  return fetcher
+export function joinUrl (...urls) {
+  return urls.join('/').replace(/([^:]\/)\/+/g, '$1').replace('/?', '?')
 }
