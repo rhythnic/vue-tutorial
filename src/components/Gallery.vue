@@ -8,6 +8,7 @@
       :alt="image.tags"
       :likes="image.likes"
       :mostLikes="mostLikes"
+      :createdAt="image.createdAt"
     />
   </div>
 </template>
