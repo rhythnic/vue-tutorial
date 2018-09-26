@@ -18,7 +18,11 @@ You need a [Pixabay API](https://pixabay.com/en/service/about/api/) key.
 
 Before running commands below, export the environment variable for API key.
 
-`export PIXABAY_API_KEY=your_api_key_here`
+```
+export PIXABAY_API_KEY=your_api_key_here
+npm install
+npm run dev
+```
 
 ## Build Setup
 
