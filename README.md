@@ -1,6 +1,6 @@
 # Step - 3
 
-In step 2 we add a service for the [Pixabay](https://pixabay.com/en/) API.
+In step 3 we add a service for the [Pixabay](https://pixabay.com/en/) API.
 
 ## Changes
 
