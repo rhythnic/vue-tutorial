@@ -6,17 +6,16 @@ Each step's README.md file describes the changes or additions for that step.
 ## Walking through the tutorial
 
 - Clone this repo: `git clone git@github.com:rhythnic/vue-tutorial.git`
-- Npm install `npm install`
 - Checkout a branch, e.g. `git checkout step-1`
 - README.md will describe the changes made in that step of the tutorial.
 - Look at the new code.
-- Run the app at that step, `npm run dev`
+- Run the app at that step.
 
 ## Running the app
 
 You need a [Pixabay API](https://pixabay.com/en/service/about/api/) key.
-
 Before running commands below, export the environment variable for API key.
+Run `npm install` from the master branch, to ensure you download all dependencies.
 
 ```
 export PIXABAY_API_KEY=your_api_key_here
